@@ -25,6 +25,7 @@ interDec_account = AdAccount(os.environ.get("interDec_AdAccount"))
 params = {
     'date_preset': "last_week_mon_sun",
     "level": "campaign",
+    'time_increment': "1",
     "export_format": "csv"
 }
 
