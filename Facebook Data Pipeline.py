@@ -22,9 +22,9 @@ interDec_account = AdAccount(os.environ.get("interDec_AdAccount"))
 
 # Seting-Up my requests
 params = {
-    'date_preset': "last_week_mon_sun",
+    'date_preset': "this_quarter",
     "level": "campaign",
-    'time_increment': "1",
+    # 'time_increment': "1",
     "export_format": "csv"
 }
 
@@ -57,7 +57,7 @@ ws = wb.create_sheet("FacebookLastWeek", 0)
 dest_filename = f"{path}\\{workbook}"
 
 # Write headers
-headers = ("Campaign Name", "Clicks", "Reach", "Spent",)
+headers = ("Campaign Name", "Clicks", "Reach", "Spent", "Date",)
 ws.append(headers)
 
 # Formating header
@@ -74,6 +74,7 @@ for i in range(0, len(laSalle_insights)):
         laSalle_insights[i]["clicks"],
         laSalle_insights[i]["reach"],
         laSalle_insights[i]["spend"],
+        laSalle_insights[i]['date_start'],
         ))
 
 for i in range(0, len(interDec_insights)):
@@ -82,6 +83,7 @@ for i in range(0, len(interDec_insights)):
         interDec_insights[i]["clicks"],
         interDec_insights[i]["reach"],
         interDec_insights[i]["spend"],
+        interDec_insights[i]['date_start'],
         ))
 
 # Formating spent column
