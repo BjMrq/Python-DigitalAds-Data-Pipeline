@@ -81,6 +81,7 @@ job_config = bigquery.LoadJobConfig()
 job_config.source_format = bigquery.SourceFormat.CSV
 job_config.skip_leading_rows = 1
 job_config.autodetect = True
+job_config.write_disposition = "WRITE_TRUNCATE"
 
 # Start writting into BigQuery
 with open(filename, 'rb') as source_file:
