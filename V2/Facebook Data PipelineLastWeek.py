@@ -53,7 +53,7 @@ path = os.getcwd()
 filename = f"{path}\\{workbook}"
 
 with open(filename, "w", newline='') as file:
-    headers = ["campaign_name", "clicks", "reach", "spent", "date_start"]
+    headers = ["campaign_name", "clicks", "reach", "Spent", "Date"]
     csv_writer = csv.DictWriter(file, fieldnames=headers)
     csv_writer.writeheader()
     for i in range(0, len(laSalle_insights)):
@@ -61,16 +61,16 @@ with open(filename, "w", newline='') as file:
             "campaign_name": laSalle_insights[i]["campaign_name"],
             "clicks": laSalle_insights[i]["reach"],
             "reach": laSalle_insights[i]["clicks"],
-            "spent": laSalle_insights[i]["spend"],
-            "date_start": laSalle_insights[i]["date_start"],
+            "Spent": laSalle_insights[i]["spend"],
+            "Date": laSalle_insights[i]["date_start"],
             })
     for i in range(0, len(interDec_insights)):
         csv_writer.writerow({
             "campaign_name": interDec_insights[i]["campaign_name"],
             "clicks": interDec_insights[i]["reach"],
             "reach": interDec_insights[i]["clicks"],
-            "spent": interDec_insights[i]["spend"],
-            "date_start": interDec_insights[i]["date_start"],
+            "Spent": interDec_insights[i]["spend"],
+            "Date": interDec_insights[i]["date_start"],
             })
 
 # Write insights into BigQueryfile
