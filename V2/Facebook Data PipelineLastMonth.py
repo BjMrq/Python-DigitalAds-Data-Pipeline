@@ -14,16 +14,16 @@ from email.mime.multipart import MIMEMultipart
 load_dotenv()
 
 # Getting Acces ID from env_vars
-my_app_id = os.environ.get("my_app_id")
-my_app_secret = os.environ.get("my_app_secret")
-my_access_token = os.environ.get("my_access_token")
+my_app_id = os.environ.get("MY_APP_ID")
+my_app_secret = os.environ.get("MY_APP_SECRET")
+my_access_token = os.environ.get("MY_ACCESS_TOKEN")
 
 # Initialitiong connection with Facebook
 FacebookAdsApi.init(my_app_id, my_app_secret, my_access_token)
 
 # Connecting to accounts
-laSalle_account = AdAccount(os.environ.get("laSalle_AdAccount"))
-interDec_account = AdAccount(os.environ.get("interDec_AdAccount"))
+laSalle_account = AdAccount(os.environ.get("LASALLE_ADACCOUNT"))
+interDec_account = AdAccount(os.environ.get("INTERDEC_ADACCOUNT"))
 
 # Seting-Up my requests
 params = {
@@ -75,7 +75,7 @@ with open(filename, "w", newline='') as file:
 
 # Write insights into BigQueryfile
 # Connect to client
-credentials = os.environ.get("bigquery_credentials")
+credentials = os.environ.get("BIGQUERY_CREDENTIALS")
 client = bigquery.Client.from_service_account_json(
     credentials)
 dataset_id = "FacebookDataPipelineTest"
@@ -106,7 +106,7 @@ print('Loaded {} rows into {}:{}.'.format(
 
 # Send email with result
 port = 465  # For SSL
-password = os.environ.get("mdp_mail")
+password = os.environ.get("MDP_EMAIL")
 context = ssl.create_default_context()
 sender_email = "lci.automated.report@gmail.com"
 receiver_email = "Benjamin.Marquis@lcieducation.com"
